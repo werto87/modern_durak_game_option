@@ -1,8 +1,9 @@
 [requires]
 catch2/2.13.7
-# boost/1.77.0
+boost/1.81.0
 [generators]
 cmake
 [options]
 catch2:with_main=True
 catch2:with_benchmark=True
+boost:header_only=True
