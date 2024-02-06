@@ -24,12 +24,6 @@ target_include_directories(modern_durak_game_option INTERFACE $<BUILD_INTERFACE:
 
 target_compile_features(modern_durak_game_option INTERFACE cxx_std_20)
 
-set_target_properties(
-        modern_durak_game_option
-        PROPERTIES VERSION ${PROJECT_VERSION}
-        CXX_VISIBILITY_PRESET hidden
-        VISIBILITY_INLINES_HIDDEN YES)
-
 install(FILES
         userDefinedGameOption.hxx
         DESTINATION include/modern_durak_game_option
