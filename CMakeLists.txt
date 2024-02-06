@@ -4,7 +4,6 @@ if (NOT DEFINED CMAKE_CXX_STANDARD) # Only set the cxx_standard if it is not set
 endif ()
 project(
         modern_game_game_option
-        VERSION 0.0.1
         LANGUAGES CXX C)
 include(cmake/PreventInSourceBuilds.cmake)
 include(ProjectOptions.cmake)
