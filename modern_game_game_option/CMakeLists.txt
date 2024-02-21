@@ -10,7 +10,6 @@ add_library(modern_durak_game_option INTERFACE)
 
 add_library(myproject::modern_durak_game_option ALIAS modern_durak_game_option)
 
-
 find_package(durak)
 find_package(Boost)
 
