@@ -1,7 +1,7 @@
 #pragma once
 
-#include <boost/fusion/adapted/struct/define_struct.hpp>
 #include <durak/gameOption.hxx>
+#include <login_matchmaking_game_shared/gameOptionBase.hxx>
 #include <optional>
 #include <string>
 
@@ -26,20 +26,28 @@ enum struct OpponentCards
   showOpponentCards,
 };
 
-}
-BOOST_FUSION_DEFINE_STRUCT ((shared_class), GameOption, (durak::GameOption, gameOption) (shared_class::TimerOption, timerOption) (uint64_t, computerControlledPlayerCount) (shared_class::OpponentCards, opponentCards))
-
-namespace shared_class
+class GameOption : public user_matchmaking_game::GameOptionBase
 {
-std::optional<std::string> inline errorInGameOption (shared_class::GameOption const &gameOption)
+public:
+  durak::GameOption gameOption{};
+  TimerOption timerOption{};
+  uint64_t computerControlledPlayerCount{};
+  shared_class::OpponentCards opponentCards{};
+};
+template <typename GameOptionImpl>
+std::expected<void, std::string>
+errorInGameOption (user_matchmaking_game::GameOptionBase const &gameOptionBase)
 {
+  GameOptionImpl const &gameOption = *dynamic_cast<GameOptionImpl *> (gameOptionBase);
   if (gameOption.computerControlledPlayerCount >= 2)
     {
-      return "only one computer controlled player per game";
+      return std::unexpected ("'computerControlledPlayerCount >= 2' not more than one computer controlled player per game is allowed");
     }
   else
     {
-      return std::nullopt;
+      return {};
     }
 }
+
 }
+BOOST_FUSION_ADAPT_STRUCT (shared_class::GameOption, gameOption, timerOption, computerControlledPlayerCount, opponentCards)

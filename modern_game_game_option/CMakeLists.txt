@@ -12,10 +12,13 @@ add_library(myproject::modern_durak_game_option ALIAS modern_durak_game_option)
 
 find_package(durak)
 find_package(Boost)
+find_package(login_matchmaking_game_shared)
+
 
 target_link_libraries(modern_durak_game_option INTERFACE
         durak::durak
         Boost::headers
+        login_matchmaking_game_shared::login_matchmaking_game_shared
         )
 
 target_include_directories(modern_durak_game_option INTERFACE $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>

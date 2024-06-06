@@ -1,4 +1,5 @@
 from conan import ConanFile
+from conan.tools.cmake import CMake, cmake_layout,CMakeToolchain
 
 
 class Project(ConanFile):
@@ -15,5 +16,5 @@ class Project(ConanFile):
         self.options["catch2"].with_benchmark = True
 
     def requirements(self):
-        self.requires("durak/1.0.5")
-        self.requires("boost/1.85.0")
+        self.requires("durak/[<2]")
+        self.requires("login_matchmaking_game_shared/latest")
