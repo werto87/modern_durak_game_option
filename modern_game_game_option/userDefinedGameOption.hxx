@@ -34,6 +34,12 @@ public:
   uint64_t computerControlledPlayerCount{};
   shared_class::OpponentCards opponentCards{};
 };
+
+}
+BOOST_FUSION_ADAPT_STRUCT (shared_class::GameOption, gameOption, timerOption, computerControlledPlayerCount, opponentCards)
+
+namespace user_matchmaking_game
+{
 template <typename GameOptionImpl>
 std::expected<void, std::string>
 errorInGameOption (user_matchmaking_game::GameOptionBase const &gameOptionBase)
@@ -48,6 +54,4 @@ errorInGameOption (user_matchmaking_game::GameOptionBase const &gameOptionBase)
       return {};
     }
 }
-
 }
-BOOST_FUSION_ADAPT_STRUCT (shared_class::GameOption, gameOption, timerOption, computerControlledPlayerCount, opponentCards)
