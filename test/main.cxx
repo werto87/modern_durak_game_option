@@ -1,4 +1,4 @@
-#include "modern_game_game_option/userDefinedGameOption.hxx"
+#include "modern_durak_game_option/userDefinedGameOption.hxx"
 
 int
 main ()
