@@ -40,11 +40,11 @@ BOOST_FUSION_ADAPT_STRUCT (shared_class::GameOption, gameOption, timerOption, co
 
 namespace user_matchmaking_game
 {
-template <typename GameOptionImpl>
+
 std::expected<void, std::string>
 errorInGameOption (user_matchmaking_game::GameOptionBase const &gameOptionBase)
 {
-  GameOptionImpl const &gameOption = *dynamic_cast<GameOptionImpl *> (gameOptionBase);
+  shared_class::GameOption const &gameOption = dynamic_cast<shared_class::GameOption const &> (gameOptionBase);
   if (gameOption.computerControlledPlayerCount >= 2)
     {
       return std::unexpected ("'computerControlledPlayerCount >= 2' not more than one computer controlled player per game is allowed");
