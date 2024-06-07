@@ -33,16 +33,14 @@ BOOST_FUSION_DEFINE_STRUCT ((shared_class), GameOption, (durak::GameOption, game
 
 namespace user_matchmaking_game
 {
-
-[[nodiscard]] std::string
+[[nodiscard]] inline std::string
 gameOptionDefaultValues ()
 {
   auto ss = std::stringstream{};
   ss << confu_json::to_json (shared_class::GameOption{});
   return ss.str ();
 }
-
-[[nodiscard]] std::expected<void, std::string>
+[[nodiscard]] inline std::expected<void, std::string>
 errorInGameOption (user_matchmaking_game::GameOptionAsString const &gameOptionAsString)
 {
   auto ec = boost::system::error_code{};
