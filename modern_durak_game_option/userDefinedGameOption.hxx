@@ -1,5 +1,6 @@
 #pragma once
 
+#include <confu_json/to_json.hxx>
 #include <confu_json/to_object.hxx>
 #include <confu_json/util.hxx>
 #include <durak/gameOption.hxx>
@@ -32,6 +33,14 @@ BOOST_FUSION_DEFINE_STRUCT ((shared_class), GameOption, (durak::GameOption, game
 
 namespace user_matchmaking_game
 {
+
+[[nodiscard]] std::string
+gameOptionDefaultValues ()
+{
+  auto ss = std::stringstream{};
+  ss << confu_json::to_json (shared_class::GameOption{});
+  return ss.str ();
+}
 
 [[nodiscard]] std::expected<void, std::string>
 errorInGameOption (user_matchmaking_game::GameOptionAsString const &gameOptionAsString)
