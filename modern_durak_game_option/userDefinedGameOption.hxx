@@ -3,7 +3,7 @@
 #include <confu_json/to_object.hxx>
 #include <confu_json/util.hxx>
 #include <durak/gameOption.hxx>
-#include <login_matchmaking_game_shared/gameOptionBase.hxx>
+#include <login_matchmaking_game_shared/gameOptionAsString.hxx>
 #include <optional>
 #include <sstream>
 #include <string>
