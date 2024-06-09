@@ -5,7 +5,7 @@
 ## (See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 
-add_library(modern_durak_game_option userDefinedGameOption.cxx)
+add_library(modern_durak_game_option INTERFACE)
 
 
 add_library(myproject::modern_durak_game_option ALIAS modern_durak_game_option)
@@ -15,18 +15,18 @@ find_package(Boost)
 find_package(login_matchmaking_game_shared)
 
 
-target_link_libraries(modern_durak_game_option PUBLIC
+target_link_libraries(modern_durak_game_option INTERFACE
         durak::durak
         Boost::headers
         login_matchmaking_game_shared::login_matchmaking_game_shared
         )
 
-target_include_directories(modern_durak_game_option PUBLIC 
-PUBLIC
+target_include_directories(modern_durak_game_option INTERFACE 
+INTERFACE
 $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}>
         )
 
-target_compile_features(modern_durak_game_option PUBLIC cxx_std_20)
+target_compile_features(modern_durak_game_option INTERFACE cxx_std_20)
 
 install(FILES
         userDefinedGameOption.hxx

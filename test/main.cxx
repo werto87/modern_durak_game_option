@@ -1,3 +1,4 @@
+#include "modern_durak_game_option/src.hxx"
 #include "modern_durak_game_option/userDefinedGameOption.hxx"
 #include <boost/json/src.hpp>
 #include <confu_json/to_json.hxx>
