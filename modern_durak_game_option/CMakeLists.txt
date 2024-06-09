@@ -29,6 +29,7 @@ $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}>
 target_compile_features(modern_durak_game_option INTERFACE cxx_std_20)
 
 install(FILES
+        src.hxx
         userDefinedGameOption.hxx
         DESTINATION include/modern_durak_game_option
         )
