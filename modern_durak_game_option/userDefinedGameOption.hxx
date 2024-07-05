@@ -9,8 +9,6 @@
 #include <sstream>
 #include <string>
 
-typedef std::vector<std::pair<std::string, long long int> > UserTimeMilliseconds;
-
 namespace shared_class
 {
 enum struct TimerType

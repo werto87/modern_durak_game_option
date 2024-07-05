@@ -12,7 +12,6 @@ main ()
   auto ss = std::stringstream{};
   ss << confu_json::to_json (gameOption);
   gameOptionAsString.gameOptionAsString = ss.str ();
-  std::cout << ss.str () << std::endl;
   if (auto result = user_matchmaking_game::errorInGameOption (gameOptionAsString))
     {
       std::cout << "okay" << std::endl;
