@@ -4,11 +4,11 @@
 #include <confu_json/to_object.hxx>
 #include <confu_json/util.hxx>
 #include <durak/gameOption.hxx>
+#include <expected>
 #include <login_matchmaking_game_shared/gameOptionAsString.hxx>
 #include <optional>
 #include <sstream>
 #include <string>
-#include <expected>
 
 namespace shared_class
 {
@@ -28,7 +28,7 @@ enum struct OpponentCards
   showOpponentCards,
 };
 }
-BOOST_FUSION_DEFINE_STRUCT ((shared_class), GameOption, (durak::GameOption, gameOption) (shared_class::TimerOption, timerOption) (uint64_t, computerControlledPlayerCount) (shared_class::OpponentCards, opponentCards))
+BOOST_FUSION_DEFINE_STRUCT ((shared_class), GameOption, (durak::GameOption, gameOption) (shared_class::TimerOption, timerOption) (uint64_t, computerControlledPlayerCount) (shared_class::OpponentCards, opponentCards) (bool, create3CardsVs3CardsPuzzle))
 
 namespace user_matchmaking_game
 {
